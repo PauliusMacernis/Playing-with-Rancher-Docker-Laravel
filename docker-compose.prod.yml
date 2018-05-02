@@ -1,7 +1,17 @@
-version: "2"
+version: '2'
 services:
   rancher-laravel-demo:
     image: registry.gitlab.com/sugalvojau/playing-with-rancher-docker-laravel:latest
-    labels: {io.rancher.container.pull_image: always}
     stdin_open: true
     tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  laravel-demo-load-balancer:
+    image: rancher/lb-service-haproxy:v0.9.1
+    ports:
+    - 80:80/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.agent_service.drain_provider: 'true'
+      io.rancher.container.create_agent: 'true'
+      io.rancher.scheduler.global: 'true'
