@@ -1,0 +1,7 @@
+version: "2"
+services:
+  rancher-laravel-demo:
+    image: registry.gitlab.com/sugalvojau/playing-with-rancher-docker-laravel:latest
+    labels: {io.rancher.container.pull_image: always}
+    stdin_open: true
+    tty: true

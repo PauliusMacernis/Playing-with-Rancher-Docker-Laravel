@@ -1,0 +1,4 @@
+version: "2"
+services:
+  rancher-laravel-demo:
+    scale: 2
