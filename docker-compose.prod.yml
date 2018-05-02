@@ -6,6 +6,8 @@ services:
     tty: true
     labels:
       io.rancher.container.pull_image: always
+    environment:
+      RELEASE_VERSION: "${RELEASE_VERSION}"
   laravel-demo-load-balancer:
     image: rancher/lb-service-haproxy:v0.9.1
     ports:
